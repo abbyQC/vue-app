@@ -1,0 +1,37 @@
+package sysc2004lab5;
+
+/**
+ * Created by changqiu -- 100991788 on 2017-03-01.
+ */
+public class Bicycle extends Vehicle {
+
+    private String bellColor;
+ 
+    public Bicycle(String color, double speed, String bellColor){
+        super(2,1, color,speed);
+        this.bellColor = bellColor;
+    }
+    public void setBellColor(String bellColor){
+        this.bellColor = bellColor;
+    }
+    public String getBellColor(){
+        return bellColor;
+    }
+    @Override
+    public String toString(){
+    	return("number of Tires: "+this.getNumOfTires()+" number of Passengers: "+this.getNumOfPassengers()+"color: "+this.getColor()+" Speed: "+this.getSpeed());
+    }
+  
+	@Override
+    public boolean equals(Object obj){
+        if(this == obj) {
+            return true;
+        }
+        if(this.getClass() != obj.getClass()){
+            return false;
+        }
+        Bicycle b = (Bicycle)obj;
+        return super.equals(b) &&
+                this.getBellColor() == ((Bicycle) obj).getBellColor();
+    }
+}

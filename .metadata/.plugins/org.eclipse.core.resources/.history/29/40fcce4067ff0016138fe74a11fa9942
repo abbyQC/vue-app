@@ -1,0 +1,50 @@
+package sysc2004lab5;
+
+/**
+ * Created by changqiu on 2017-03-02.
+ */
+public class Car extends MotorVehicle {
+    private int numOfDoors;
+    public Car(int numOfTires, int numOfPassengers, double speed, String color,
+               double maximumSpeed, String licensePlate, int numOfDoors){
+        super(numOfTires, numOfPassengers, color,speed,maximumSpeed,licensePlate);
+        numOfDoors = 4;
+    }
+    public void getNumOfDoors(){
+        this.numOfDoors = numOfDoors;
+    }
+    public int setNumOfDoors(int numOfDoors){
+        return numOfDoors;
+    }
+   @Override
+    public String toString(){
+        return "num of tires :" + getNumOfTires()
+                +" num of Passengers: " +getNumOfPassengers() +
+               "color: "+ getColor()
+               + " Speed: "+ getSpeed() +"maximum speed: "
+                + getMaximumSpeed() +"lisence Plate: "
+                +getLicensePlate()
+                +"Number of Doors: "+ getNumOfDoors();
+   // }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        Car other = (Car) obj;
+        return (super.equals(other) && (numOfDoors == other.numOfDoors));
+    }
+    public double getSpeedInMilesPerHour(){
+        double currentSpeed = getSpeed() / 1.6;
+        return currentSpeed;
+    }
+    public double getSpeedInKilometerPerHour(){
+        double currentSpeed = getSpeed() * 3.6;
+        return currentSpeed;
+    }
+
+
+}
